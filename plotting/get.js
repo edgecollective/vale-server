@@ -188,14 +188,14 @@ var tempChart = new Chart(ctx_temp, {
   data: {
     labels: xvals,
     datasets: [{
-	    borderColor: "#bae755",
-   borderDash: [5, 5],
+	      borderColor: "blue",
             pointRadius: 1,
-   backgroundColor: "#e755ba",
-   pointBackgroundColor: "#55bae7",
-   pointBorderColor: "#55bae7",
-   pointHoverBackgroundColor: "#55bae7",
-   pointHoverBorderColor: "#55bae7",
+   backgroundColor: "pink",
+   //pointBackgroundColor: "#55bae7",
+   pointBackgroundColor: "blue",
+   pointBorderColor: "blue",
+   pointHoverBackgroundColor: "blue",
+   pointHoverBorderColor: "blue",
       label: 'Temp (C)',
       data: temp_points,
       borderWidth: 1
@@ -220,15 +220,15 @@ var rssiChart = new Chart(ctx_rssi, {
   data: {
     labels: xvals,
     datasets: [{
-            borderColor: "#bae755",
-   borderDash: [5, 5],
+     borderColor: "green",
             pointRadius: 1,
-   backgroundColor: "#e755ba",
-   pointBackgroundColor: "#55bae7",
-   pointBorderColor: "#55bae7",
-   pointHoverBackgroundColor: "#55bae7",
-   pointHoverBorderColor: "#55bae7",
-      label: 'RSSI (dB)',
+   backgroundColor: "lightgreen",
+   //pointBackgroundColor: "#55bae7",
+   pointBackgroundColor: "blue",
+   pointBorderColor: "blue",
+   pointHoverBackgroundColor: "blue",
+   pointHoverBorderColor: "blue",
+	    label: 'RSSI (dB)',
       data: rssi_points,
       borderWidth: 1
     }]
@@ -253,15 +253,15 @@ var humidChart = new Chart(ctx_humid, {
   data: {
     labels: xvals,
     datasets: [{
-            borderColor: "#bae755",
-   borderDash: [5, 5],
+borderColor: "blue",
             pointRadius: 1,
-   backgroundColor: "#e755ba",
-   pointBackgroundColor: "#55bae7",
-   pointBorderColor: "#55bae7",
-   pointHoverBackgroundColor: "#55bae7",
-   pointHoverBorderColor: "#55bae7",
-      label: 'Humidity (%)',
+   backgroundColor: "lightblue",
+   //pointBackgroundColor: "#55bae7",
+   pointBackgroundColor: "blue",
+   pointBorderColor: "blue",
+   pointHoverBackgroundColor: "blue",
+   pointHoverBorderColor: "blue",
+	    label: 'Humidity (%)',
       data: humid_points,
       borderWidth: 1
     }]
