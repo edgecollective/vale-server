@@ -4,6 +4,7 @@ var db = require("./database.js")
 var md5 = require("md5")
 const sqliteToCsv = require("sqlite-to-csv");
 const stringify = require('csv-stringify');
+var moment = require("moment");
 
 'use strict';
 
@@ -165,7 +166,9 @@ app.post("/api/user/", (req, res, next) => {
    var humid = object.humiditySensor[2]; // humid 
    var press = object.barometer[3]; // press
 
-   var ts = Math.round((new Date()).getTime() / 1000);
+   var date = new Date();
+            var ts = Math.round(( date ).getTime() / 1000);
+            var timestamper = moment().format();
 
    var alt = 2.;
    
@@ -180,13 +183,13 @@ app.post("/api/user/", (req, res, next) => {
 
 	console.log(data);
 
-	var sql = 'INSERT INTO user (dateTime,temp,humid,press,deviceName,devEUI,rssi) VALUES (?,?,?,?,?,?,?)'
+	var sql = 'INSERT INTO user (dateTime,timestamp,temp,humid,press,deviceName,devEUI,rssi) VALUES (?,?,?,?,?,?,?,?)'
 
 	//var insert = 'INSERT INTO user (dateTime,vwc,temp,permit,bulk,pore,batt,deviceName,devEUI,rssi) VALUES (?,?,?,?,?,?,?)'
 
-	//var sql = 'INSERT INTO user (dateTime,vwc,temp,permit,bulk,pore,batt) VALUES (?,?,?,?,?,?,?)'
+	//var sql = 'INSERT INTO user (dateTime,timestamper,vwc,temp,permit,bulk,pore,batt) VALUES (?,?,?,?,?,?,?)'
 	
-	var params =[ts,data.temp,data.humid,data.press,data.deviceName,data.devEUI,data.rssi]
+	var params =[ts,timestamper,data.temp,data.humid,data.press,data.deviceName,data.devEUI,data.rssi]
     db.run(sql, params, function (err, result) {
         if (err){
             res.status(400).json({"error": err.message})
