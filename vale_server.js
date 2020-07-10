@@ -114,7 +114,7 @@ function downloadCsv(req, res) {
 };
 
 
-app.get("/api/user/csv", (req, res, next) => {
+app.get("/api/csv", (req, res, next) => {
         console.log('csv');
 
          var N = 1000;
@@ -131,8 +131,8 @@ app.get("/api/user/csv", (req, res, next) => {
     var sql = "select * from user order by id desc LIMIT "
     var sql = sql.concat(N.toString());
     var params = [];
-    var fields = ['dateTime','rssi'];
-        var fieldNames = ['Time','RSSI'];
+    //var fields = ['dateTime','rssi'];
+    //var fieldNames = ['Time','RSSI'];
     db.all(sql, params, (err, rows) => {
         if (err) {
           res.status(400).json({"error":err.message});
